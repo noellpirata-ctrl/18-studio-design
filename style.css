@@ -1,0 +1,393 @@
+/* Reset e Variáveis de Luxo Alternativo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-washi: #FAF8F5;       /* Off-white tradicional */
+    --text-black: #111111;     /* Preto puro para contraste agressivo e chique */
+    --text-muted: #555555;     /* Cinza asfalto para blocos de texto */
+    --accent: #A62B2B;         /* Vermelho carmim oriental sutil para pontos de foco */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-washi);
+    color: var(--text-black);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 📐 Linhas de Grade de Fundo (Diferencial de Design) */
+.grid-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.grid-lines .line {
+    border-right: 1px solid rgba(17, 17, 17, 0.03);
+    height: 100%;
+}
+
+/* 🧭 Navbar Descentralizada */
+.navbar-vanguard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.link-item {
+    text-decoration: none;
+    color: var(--text-black);
+    font-size: 0.85rem;
+    font-weight: 400;
+    transition: transform 0.3s ease;
+}
+
+.link-item:hover {
+    transform: translateX(5px);
+}
+
+.btn-contact {
+    text-decoration: none;
+    color: var(--text-black);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--text-black);
+    padding-bottom: 4px;
+}
+
+/* 🪐 O Novo Painel Hero (Baseado em Posições Absolutas e Camadas) */
+.hero-vanguard {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 2;
+}
+
+/* CAMADA 1: O Texto Tipográfico Gigante */
+.giant-title-wrapper {
+    position: absolute;
+    left: 4%;
+    top: 15vh;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.giant-text {
+    font-family: var(--font-serif);
+    font-size: 11vw; /* Letra monumental que escala com o tamanho da tela */
+    font-weight: 700;
+    line-height: 0.85;
+    letter-spacing: -4px;
+    color: var(--text-black);
+    opacity: 0.95;
+}
+
+.giant-text .italic-text {
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -2px;
+}
+
+/* CAMADA 2: A Moldura da Imagem Deslocada */
+.image-layer {
+    position: absolute;
+    right: 5%; /* Diminuímos para colar mais na borda direita da tela */
+    top: 28vh; /* Empurramos um pouquinho para baixo para não cobrir o topo das letras */
+    z-index: 3;
+    transition: transform 0.4s ease;
+}
+
+
+.image-frame {
+    background-color: #EDEAE4;
+    padding: 1.5rem;
+    width: 28vw;
+    min-width: 320px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.04);
+    position: relative;
+}
+
+.vanguard-img {
+    width: 100%;
+    height: 45vh;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.frame-tag {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+/* Efeito interativo na imagem vanguardista */
+.image-layer:hover {
+    transform: scale(1.02) rotate(-1deg);
+}
+
+.image-layer:hover .vanguard-img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
+
+/* CAMADA 3: O Manifesto de Texto Interceptando o Design */
+.manifesto-layer {
+    position: absolute;
+    left: 6%;
+    bottom: 8vh;
+    max-width: 440px;
+    z-index: 4;
+}
+
+.manifesto-subtitle {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.manifesto-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.btn-vanguard-primary {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text-black);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: letter-spacing 0.3s ease;
+}
+
+.btn-vanguard-primary:hover {
+    letter-spacing: 4px;
+    color: var(--accent);
+}
+
+/* 📱 Responsividade Radical para Mobile */
+@media (max-width: 968px) {
+    .hero-vanguard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 15vh;
+        padding-bottom: 5vh;
+        min-height: auto;
+    }
+    .giant-title-wrapper {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-bottom: 3rem;
+        width: 100%;
+    }
+    .giant-text {
+        font-size: 16vw;
+    }
+    .image-layer {
+        position: relative;
+        right: 0;
+        top: 0;
+        margin-bottom: 4rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .image-frame {
+        width: 80vw;
+    }
+    .manifesto-layer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        max-width: 100%;
+        text-align: left;
+    }
+}
+
+/* ==========================================================================
+   ESTILIZAÇÃO DO RODAPÉ (VANGUARD DARK LAYER)
+   ========================================================================== */
+.footer-vanguard {
+    background-color: #111111; /* Preto absoluto para dar o choque de contraste com o off-white */
+    padding: 8rem 5% 3rem 5%;
+    position: relative;
+    z-index: 5;
+    margin-top: 10vh;
+}
+
+.footer-grid-overlay {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 100%;
+}
+
+/* Título Monumental de Fundo no Rodapé */
+.footer-giant-wrap {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 2rem;
+}
+
+.footer-giant-text {
+    font-family: var(--font-serif);
+    font-size: 8vw;
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: #FAF8F5;
+    line-height: 0.9;
+}
+
+.footer-giant-text span {
+    color: var(--accent);
+}
+
+/* Camada Assimétrica de Informações */
+.footer-content-layer {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    gap: 5rem;
+}
+
+.f-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.f-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #999999;
+    font-weight: 300;
+    max-width: 340px;
+}
+
+.footer-box-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.f-link {
+    text-decoration: none;
+    color: #FAF8F5;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.f-link:hover {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+.f-status {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #FAF8F5;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.btn-vanguard-footer {
+    display: inline-block;
+    text-decoration: none;
+    color: #FAF8F5;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #FAF8F5;
+    padding-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-vanguard-footer:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    letter-spacing: 3px;
+}
+
+/* Linha Final de Direitos */
+.footer-vanguard-bottom {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    text-align: center;
+}
+
+.footer-vanguard-bottom p {
+    font-size: 0.75rem;
+    color: #666666;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+/* Responsividade do Rodapé */
+@media (max-width: 968px) {
+    .footer-content-layer {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .footer-giant-text {
+        font-size: 12vw;
+    }
+    .f-text {
+        max-width: 100%;
+    }
+}
